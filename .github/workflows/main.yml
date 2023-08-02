@@ -27,7 +27,7 @@ jobs:
       run: mvn -B package shade:shade --file app/pom.xml
     
     - name: Build Binary
-      run: cd /app/target && zip deployment.zip *.SNAPSHOT.jar
+      run: cd app/target && zip deployment.zip *.SNAPSHOT.jar
 
     - name: Path
       run: $PWD
