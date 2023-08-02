@@ -34,7 +34,7 @@ jobs:
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws_region: ${{ secrets.AWS_REGION }}
-        function_name: gorush
+        function_name: devbean-notification-dispatcher-function-lab-dev
         zip_file: app/target/deployment.zip
         dry_run: true
         runtime: java11
@@ -58,3 +58,4 @@ jobs:
       #   function_name: gorush
       #   zip_file: output.zip
       #   dry_run: true
+      
