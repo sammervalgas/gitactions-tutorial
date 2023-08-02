@@ -25,8 +25,11 @@ jobs:
     - name: Build project with Maven
       run: mvn -B package shade:shade --file app/pom.xml
     
+    - name: Build Binary
+      run: cd app/target && mv [d]*-SNAPSHOT.jar deployment.jar
+          
     # - name: Build Binary
-    #   run: cd app/target && zip deployment.zip [d]*-SNAPSHOT.jar
+    # run: cd app/target && zip deployment.zip [d]*-SNAPSHOT.jar
 
     - name: AWS Lambda Deploy
       uses: appleboy/lambda-action@v0.1.9
@@ -35,7 +38,7 @@ jobs:
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws_region: ${{ secrets.AWS_REGION }}
         function_name: devbean-notification-dispatcher-function-lab-dev
-        zip_file: app/target/[d]*-SNAPSHOT.jar
+        zip_file: app/target/deployment.jar
         dry_run: true
         runtime: java11
         
