@@ -26,8 +26,11 @@ jobs:
     - name: Build project with Maven
       run: mvn -B package shade:shade --file app/pom.xml
     
-    - name: Build Library
-      run: echo $PWD
+    - name: Build Binary
+      run: cd /app/target && zip deployment.zip *.SNAPSHOT.jar
+
+    - name: Path
+      run: $PWD
       
   # deploy:
   #   name: deploy lambda function
