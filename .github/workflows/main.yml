@@ -35,7 +35,7 @@ jobs:
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws_region: ${{ secrets.AWS_REGION }}
         function_name: devbean-notification-dispatcher-function-lab-dev
-        jar_file: app/target/[d]*-SNAPSHOT.jar
+        zip_file: app/target/[d]*-SNAPSHOT.jar
         dry_run: true
         runtime: java11
         
