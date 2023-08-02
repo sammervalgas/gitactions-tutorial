@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
 
-    
+
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
@@ -25,3 +25,22 @@ jobs:
         
     - name: Build project with Maven
       run: mvn -B package shade:shade --file app/pom.xml
+    
+    - name: Build Library
+      run: echo $PWD
+      
+  # deploy:
+  #   name: deploy lambda function
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: AWS Lambda Deploy
+  #     if: github.ref == 'refs/heads/master'
+  #     uses: appleboy/lambda-action@v0.1.9
+  #     with:
+  #       aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #       aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #       aws_region: ${{ secrets.AWS_REGION }}
+  #       function_name: gorush
+  #       zip_file: output.zip
+  #       dry_run: true
