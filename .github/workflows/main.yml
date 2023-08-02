@@ -33,14 +33,15 @@ jobs:
 
     - name: AWS Lambda Deploy
       # uses: appleboy/lambda-action@v0.1.9
-      uses: appleboy/lambda-action@390dab2546e6c97ca3b94fc5f3863d0e15bec0ee
+      # uses: appleboy/lambda-action@390dab2546e6c97ca3b94fc5f3863d0e15bec0ee
+      uses: appleboy/lambda-action@master
       with:
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws_region: ${{ secrets.AWS_REGION }}
         function_name: devbean-notification-dispatcher-function-lab-dev
         zip_file: app/target/deployment.jar
-        dry_run: true
-        memory_size: 128
-        timeout: 60
+        # dry_run: true
+        # memory_size: 128
+        # timeout: 60
         runtime: java11
