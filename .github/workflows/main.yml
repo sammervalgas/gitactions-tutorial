@@ -30,7 +30,7 @@ jobs:
       run: cd app/target && zip deployment.zip *-SNAPSHOT.jar
 
     - name: Path
-      run: echo $PWD
+      run: ls app/target
       
   # deploy:
   #   name: deploy lambda function
